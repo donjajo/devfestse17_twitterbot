@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import tweepy
 import os
 import sys
@@ -18,12 +19,18 @@ class Tweet:
 
 	def __init__( self ):
 		self._db_connect()
-		#self._auth()
+		self._auth()
 
 		self.tweet = ''
 
 		# Define hashtags to be appended to the tweet
 		self.hashtags = '#Devfest17 #DevfestSE17'
+
+		# Create necessary paths
+		if not os.path.exists( self.images_dir ):
+			os.mkdir( self.images_dir )
+		if not os.path.exists( self.tweeted_dir ):
+			os.mkdir( self.tweeted_dir )
 
 	def _db_connect( self ):
 		"""Managing tweeted images with SiDB SQLite (https://github.com/donjajo/Python-SiDB)"""
@@ -52,7 +59,6 @@ class Tweet:
 			self.auth.set_access_token( self.details[ 'access_token' ], self.details[ 'access_token_secret' ] );
 
 			self.api = tweepy.API( self.auth )
-			self.screen_name = self.api.me().screen_name
 		except tweepy.error.TweepError as e:
 			print( 'Error {0}: {1}'.format( e.args[ 0 ][ 0 ][ 'code' ], e.args[ 0 ][ 0 ][ 'message' ] ) )
 			sys.exit( 1 )
@@ -69,7 +75,8 @@ class Tweet:
 		watermarked = os.path.join( self.tweeted_dir, os.path.basename( img ) )
 		image = Image.open( img )
 
-		# Paste in the watermark image into the main image and set position
+		# Paste in the watermark image into the main image and set position. 
+		# P.S the math there is hack i figured out to keep the watermark in place. It's working, don't change anything! :D
 		image.paste( watermark, ( 0, image.size[ 1 ] - 350 ), watermark )
 
 		# Save the watermarked image to tweeted directory
@@ -108,7 +115,7 @@ class Tweet:
 			self.comot_tweet( os.path.basename( image ) )
 			if not self.eh_don_tweet():
 				self.put_am_watermark( image )
-				#self._oya_tweet_am()
+				self._oya_tweet_am()
 
 g = Tweet()
 g.do_am()
