@@ -10,15 +10,15 @@ class Tweet:
 	tweeted_dir = os.path.abspath( 'tweeted' )
 
 	details = {
-		'consumer_key' : 'NwrGoiyM55024LbTj8wWMVGj8',
-		'consumer_secret' : 'voTSFeWOfbXSA1rFnkRTdDYdaI5O8bJRQFbPkCjMa945zMtNmf',
-		'access_token' : '4047940348-aXoPyZKa1qpS2r6vkOO3Ig3JG9gHPldhZyIviwU',
-		'access_token_secret' : 'BPReCkAm29ujLyQr8d8DYQaqTV0aewuf4bJt5ZJH7dtWj'
+		'consumer_key' : '',
+		'consumer_secret' : '',
+		'access_token' : '',
+		'access_token_secret' : ''
 	}
 
 	def __init__( self ):
 		self._db_connect()
-		self._auth()
+		#self._auth()
 
 		self.tweet = ''
 
@@ -70,7 +70,7 @@ class Tweet:
 		image = Image.open( img )
 
 		# Paste in the watermark image into the main image and set position
-		image.paste( watermark, ( 0, 0 ), watermark )
+		image.paste( watermark, ( 0, image.size[ 1 ] - 350 ), watermark )
 
 		# Save the watermarked image to tweeted directory
 		image.save( watermarked )
@@ -108,7 +108,7 @@ class Tweet:
 			self.comot_tweet( os.path.basename( image ) )
 			if not self.eh_don_tweet():
 				self.put_am_watermark( image )
-				self._oya_tweet_am()
+				#self._oya_tweet_am()
 
 g = Tweet()
 g.do_am()
