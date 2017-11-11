@@ -24,7 +24,7 @@ pip3 install tweepy
 
 ### How we dey use this program
 
-The program dey somehow sha, but sha make I explain. First of all, you go deal with Twitter API matter and comot the Consumer key and Secret with API Key and Secret. Dis one no be my wahala, dis country already get wahala for everybodi. Check dat one for place like dis - https://themepacific.com/how-to-generate-api-key-consumer-token-access-key-for-twitter-oauth/994/
+The program dey somehow sha, but sha make I explain. First of all, you go deal with Twitter API matter and comot the Consumer key and Secret with API Key and Secret. Dis one no be my wahala, dis country already get wahala for everybodi. Check dat one for place [like dis] - (https://themepacific.com/how-to-generate-api-key-consumer-token-access-key-for-twitter-oauth/994/)
 
 Come change the `self.hashtag` values to wetin you wan make eh dey hashtag the tweets. Ehen, when you run the program like dis:
 
@@ -44,7 +44,7 @@ See the list of [beta pipoo](https://github.com/donjajo/devfestse17_twitterbot/g
 
 ## License
 
-Na MIT License be this - go shine ya eyes for the [LICENSE.md](LICENSE.md)
+Na MIT License be this - go shine ya eyes for the [LICENSE](LICENSE) file
 
 ## Finally
 Much love from Naija!!! 🇳🇬 🇳🇬
