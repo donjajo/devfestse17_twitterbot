@@ -101,6 +101,8 @@ class Tweet:
 			self.db.insert( 'tweeted', {
 				'image_name' : self.tweet
 				})
+			
+			print( 'Tweeted: {0}'.format( self.tweet ) )
 
 			# Oga, we are done. Give a factory reset slap
 			self.watermarked = ''
